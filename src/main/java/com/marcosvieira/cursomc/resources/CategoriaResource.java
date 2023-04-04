@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.marcosvieira.cursomc.domain.Categoria;
 
+import jakarta.persistence.Entity;
+
 @RestController
 @RequestMapping(value="/categorias")
 
