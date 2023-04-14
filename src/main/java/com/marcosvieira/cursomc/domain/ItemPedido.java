@@ -2,6 +2,8 @@ package com.marcosvieira.cursomc.domain;
 
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 
@@ -10,6 +12,7 @@ import jakarta.persistence.Entity;
 public class ItemPedido implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
+	@JsonIgnore
 	@EmbeddedId
 	private ItemPedidoPK id = new ItemPedidoPK();
 	
@@ -22,7 +25,7 @@ public class ItemPedido implements Serializable {
 		
 	}
 
-
+	@JsonIgnore
 	public ItemPedido(Pedido pedido, Produto produto,Double desconto, Integer quantidade, Double preco) {
 		super();
 			
@@ -32,12 +35,13 @@ public class ItemPedido implements Serializable {
 		this.quantidade = quantidade;
 		this.preco = preco;
 	}
-
-public Pedido getPedido() {
+	
+	@JsonIgnore
+	public Pedido getPedido() {
 	return id.getPedido();
 }
 
-public Produto getProduto() {
+	public Produto getProduto() {
 	return id.getProduto();
 }
 
